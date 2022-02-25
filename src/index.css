@@ -1,13 +1,120 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;800;900&display=swap);
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Poppins";
+  background-color: #ffffff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.section {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+}
+
+@media screen and (min-width: 992px) {
+  .section {
+    width: 95vw;
+  }
+}
+
+/* .container {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  padding-left: 2rem;
+} */
+.text {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+input {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.btn {
+  background: #0fbcf9;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-color: transparent;
+  border-radius: 0.25rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+@media screen and (max-width: 576px) {
+  .container h1 {
+    font-size: 1rem;
+  }
+  input,
+  .btn {
+    font-size: 0.85rem;
+  }
+}
+
+input.error {
+  border: 2px solid #f53b57;
+}
+
+.colors {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.colors {
+  border: 2px solid black;
+  margin: 5px;
+  padding: 5px;
+}
+
+.color {
+  margin-left: 10px;
+  width: 3.25rem;
+  height: 26rem;
+  text-orientation: ;
+}
+.percent-value {
+  margin-bottom: 0;
+  color: black;
+}
+.color-value {
+  color: black;
+  margin-bottom: 0;
+}
+.color-light .color-value {
+  color: #d2dae2;
+}
+.color-light .percent-value {
+  color: #d2dae2;
+}
+
+.inner-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10rem;
+}
+.percent-value,
+.color-value,
+.alert {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  margin: 5px;
+}
+.alert {
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  margin-top: 0.5rem;
 }

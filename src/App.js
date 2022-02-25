@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Values from "values.js";
+import SingleColor from "./SingleColor";
 
-function App() {
+const App = () => {
+  const [color, setColor] = useState("");
+  const [colorList, setColorList] = useState(new Values("#fc03be").all(10));
+  console.log("Default ColorList", colorList);
+  const [error, setError] = useState(false);
+
+  const handleButtonClick = (event) => {
+    event.preventDefault();
+    try {
+      let colors = new Values(color).all(10);
+      setColorList(colors);
+      setError(false);
+    } catch (error) {
+      setError(true);
+      console.log(error);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="text">
+        <h1>Color Palletes Generator</h1>
+        <h3>Click on Pallete to copy Color code</h3>
+      </div>
+      <section className="container">
+        <input
+          type="text"
+          value={color}
+          onChange={(event) => {
+            setColor(event.target.value);
+          }}
+          placeholder="#fc03be"
+          className={`${error ? "error" : null}`}
+        />
+        <button onClick={handleButtonClick} className="btn">
+          Submit
+        </button>
+      </section>
+      <section>
+        <div className="colors">
+          {colorList.map((color, index) => {
+            return <SingleColor key={index} {...color} index={index} />;
+          })}
+        </div>
+      </section>
+    </>
   );
-}
+};
 
 export default App;
